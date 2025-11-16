@@ -30,6 +30,10 @@ const CardDashBoard = ({ title, value, icon, color, loading }) => {
         <div className="text-2xl font-bold">
           {loading === true ? (
             <div className="text-accent-foreground">...</div>
+          ) : icon === "FileText" ? (
+            <span>
+              ₫<CountUp end={value} duration={2} />
+            </span>
           ) : (
             <CountUp end={value} duration={2} />
           )}
