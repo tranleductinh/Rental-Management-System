@@ -8,8 +8,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CircleAlert, FileText, House, Users } from "lucide-react";
+import CountUp from "react-countup";
 
-const CardDashBoard = ({ title, value, icon, color }) => {
+const CardDashBoard = ({ title, value, icon, color, loading }) => {
   return (
     <Card>
       <CardHeader className="flex items-center justify-between pb-2">
@@ -27,7 +28,11 @@ const CardDashBoard = ({ title, value, icon, color }) => {
       </CardHeader>
       <CardContent className="px-6">
         <div className="text-2xl font-bold">
-          <span>{value}</span>
+          {loading === true ? (
+            <div className="text-accent-foreground">...</div>
+          ) : (
+            <CountUp end={value} duration={2} />
+          )}
         </div>
       </CardContent>
     </Card>
